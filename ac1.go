@@ -22,7 +22,7 @@ func e_primo() {
 
 	for i < num {
 		i++
-		if num % i == 0 {
+		if num%i == 0 {
 			contador += 1
 		}
 	}
@@ -34,7 +34,7 @@ func e_primo() {
 		fmt.Println("Divisores: ")
 		for divisores < num {
 			divisores++
-			if num % divisores == 0{
+			if num%divisores == 0 {
 				fmt.Println(divisores)
 			}
 		}
@@ -71,22 +71,31 @@ func dia_semana() {
 	switch num {
 	case 0:
 		fmt.Println("Começa no UM.")
+		break
 	case 1:
 		fmt.Println("Domingo")
+		break
 	case 2:
 		fmt.Println("Segunda-feira")
+		break
 	case 3:
 		fmt.Println("Terça-feira")
+		break
 	case 4:
 		fmt.Println("Quarta-feira")
+		break
 	case 5:
 		fmt.Println("Quinta-feira")
+		break
 	case 6:
 		fmt.Println("Sexta-feira")
+		break
 	case 7:
 		fmt.Println("Sábado")
+		break
 	default:
 		fmt.Println("Erro, dia inválido")
+		break
 	}
 }
 
@@ -98,8 +107,8 @@ func e_bissexto() {
 	fmt.Println("Informe um ano: ")
 	fmt.Scanln(&ano)
 
-	if (ano % 4 == 0){
-		if ano % 100 == 0 && ano % 400 != 0{
+	if ano%4 == 0 {
+		if ano%100 == 0 && ano%400 != 0 {
 			fmt.Println("Não é bissexto")
 		} else {
 			fmt.Println("É bissexto")
