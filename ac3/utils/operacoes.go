@@ -8,6 +8,10 @@ import(
 
 func AdicionaContato(c modelo.Contato, listaContatos *[5]modelo.Contato) {
 	for ind, contato := range listaContatos {
+		// if (listaContatos[4] != modelo.Contato{}) {
+		// 	fmt.Println("Lista de contatos cheia!")
+		// 	break
+		// }
 		if (contato == modelo.Contato{}) {
 			listaContatos[ind] = c
 			break
