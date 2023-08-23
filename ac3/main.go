@@ -1,8 +1,8 @@
 package main
 
 import (
-	"ac3/ac3/modelo"
-	"ac3/ac3/utils"
+	"ac3/modelo"
+	"ac3/utils"
 	"bufio"
 	"fmt"
 	"os"
@@ -16,9 +16,9 @@ func main() {
 
 	leitor := bufio.NewReader(os.Stdin)
 
-	fmt.Println("Lista de contatos!")
 	for {
-		fmt.Print("(1) para adicionar" +
+		fmt.Println("\nLista de contatos")
+		fmt.Print("\n(1) para adicionar" +
 				"\n(2) para remover" +
 				"\n(3) para editar email" +
 				"\n(4) para exibir todos os contatos salvos" +
@@ -42,10 +42,15 @@ func main() {
 		case "2":
 			utils.ExcluiContato(&contatos)
 		case "3":
-			fmt.Print("Informe o índice do Email (0 até 4): ")
+			if(contatos[0]==modelo.Contato{}){
+				fmt.Println("\n == LISTA DE CONTATOS VAZIA ==")
+				break
+			}
+
+			fmt.Print("Informe o índice do Email (1 até 5): ")
 			fmt.Scanln(&indice)
 
-			utils.EditaEmail(&contatos, indice)
+			utils.EditaEmail(&contatos, indice-1)
 		case "4":
 			utils.MostraContatos(&contatos)
 		default:
