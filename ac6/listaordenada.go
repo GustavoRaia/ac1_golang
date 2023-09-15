@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 )
 
@@ -12,6 +13,9 @@ func main() {
 	var n = 0
 
 	insereOrd(&lista, &n, 4)
+	fmt.Println(lista)
+
+	insereOrd(&lista, &n, 12)
 	fmt.Println(lista)
 
 	insereOrd(&lista, &n, 12)
@@ -43,14 +47,18 @@ func busca1(v [M]int, n, x int) int {
 }
 
 func insereOrd(v *[M]int, n *int, novoValor int) {
-	if *n == M {
-		fmt.Println("\nOverflow")
-	} else {
+	if(*n == M) { // Verifica se o valor de N é o mesmo do tamanho da lista
+		fmt.Println("\nOverflow") // Mensagem de Erro
+	} else { // Próximo bloco de instruções
 		fmt.Println("\nTentando inserir " + strconv.Itoa(novoValor))
-		ind := busca1(*v, *n, novoValor)
-		if ind == -1 {
+		ind := busca1(*v, *n, novoValor) // Chama função que retorna -1 caso novoValor não esteja inserido na lista
+
+		if(ind == -1) { // Se o valor procurado não estiver na lista
 			fmt.Println(strconv.Itoa(novoValor) + " não encontrado, inserindo na lista")
 
+			// BLOCO PARA ORDENAR A LISTA DE FORMA CRESCENTE
+
+			/* Tentativa de fazer funcionar
 			for i := 0; i < *n; i++ {
 				fmt.Println(v[i])
 
@@ -69,10 +77,15 @@ func insereOrd(v *[M]int, n *int, novoValor int) {
 					v[i] = novoValor
 				}
 			}
+			*/
 
-			v[*n] = novoValor
-			*n++
-		} else {
+			v[*n] = novoValor // Atribui o novo valor a uma casa na lista (indice *n)
+			*n++ // Incrementa para que seja inserido na próxima casa
+
+			slice := v[:*n] // Copia o valor da lista para um slice novo
+			sort.Ints(slice) // Utiliza a biblioteca sort para ordenar os itens
+
+		} else { // Se o valor procurado já estiver na lista
 			fmt.Println("\nElemento já existe na tabela")
 		}
 	}
