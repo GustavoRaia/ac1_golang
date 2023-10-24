@@ -40,8 +40,6 @@ func main() {
 }
 
 // Exibição dos Nós em uma Lista Circular
-
-// Função para exibir os números de uma lista circular simplesmente encadeada
 func (l *Lista) exibeLista() {
 	no := l.inicio
 
@@ -57,8 +55,8 @@ func (l *Lista) adicionaLista(num int) {
 
 	if(l.inicio == nil) {
 		l.inicio = &no
-
 	}
+	
 	if(l.fim != nil) {
 		l.fim.proximo = &no
 	}

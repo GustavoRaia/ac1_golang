@@ -60,7 +60,7 @@ func main() {
 func (l *Lista) exibeLista() {
 	no := l.cabeca.proximo
 	
-	for no != nil {
+	for(no != nil) {
 		fmt.Println(no.valor)
 		no = no.proximo
 	}	
